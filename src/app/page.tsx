@@ -7,6 +7,7 @@ async function Images() {
  const mockUrls = [
    "https://i.pinimg.com/736x/dc/d9/eb/dcd9ebdfc9f1d7171a2045a81a229d2b.jpg", 
    "https://static1.srcdn.com/wordpress/wp-content/uploads/2024/07/sung-jinwoo-solo-leveling-chapter-148.jpeg",
+  "https://images.alphacoders.com/212/thumb-1920-212483.jpg",
    "https://dqg02atp76.ufs.sh/f/rVl4jPCfn6ZFO4z123DgeJ6kfSN0Go9C7PIMmHjuLzhUZ5Wn",
    "https://dqg02atp76.ufs.sh/f/rVl4jPCfn6ZFC93nvkjwEOtSfT4GZm6djWeuKVYpzR3P1F5L",
    "https://dqg02atp76.ufs.sh/f/rVl4jPCfn6ZFU3Sns3oZlCSfxyIQY5O0XD3qi7Acd1gWNz8r"];
