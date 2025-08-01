@@ -4,7 +4,7 @@ export default function TopNav() {
     return (
         <nav className="flex w-full items-center justify-between border-b p-4 text-xl
         font-semibold bg-blue-900 border-b-blue-50 text-amber-50">
-            <div>IT315</div>
+            <div>RentHub</div>
             <div>
                 <SignedOut>
                     <div className="cursor-pointer">
@@ -13,7 +13,7 @@ export default function TopNav() {
                 </SignedOut>
                 <SignedIn>
                     <SignOutButton />
-                     <UserButton />
+                   <UserButton />
                 </SignedIn>          
             </div>
         </nav>

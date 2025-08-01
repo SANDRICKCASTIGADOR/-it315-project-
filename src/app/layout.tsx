@@ -36,7 +36,7 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body className="dark">
+        <body className="white">
         <TopNav />
         {children}
         <Toaster />
