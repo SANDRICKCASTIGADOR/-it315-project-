@@ -1,3 +1,4 @@
+
 import "~/styles/globals.css";
 
 import { type Metadata } from "next";
@@ -36,8 +37,8 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body className="dark">
-        <TopNav />
+        <body className="bg-blue-800">
+      <TopNav />
         {children}
         <Toaster />
       </body>
