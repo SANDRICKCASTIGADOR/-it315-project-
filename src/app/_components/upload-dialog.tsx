@@ -19,8 +19,37 @@ import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { useUploadThing } from "~/utils/uploadthing";
 
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "~/components/ui/form"
+
+
+
+const formSchema = z.object({
+  imageName: z
+    .string()
+    .min(5, {message:"Image Name must be at least 5 characters long"})
+    .max(50),
+});
+
 export function UploadDialog() {
   const [open, setOpen] = useState(false);
+   const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+     imageName: "",
+    },
+});
+
 
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -61,18 +90,27 @@ export function UploadDialog() {
       router.refresh();
     },
   });
-  const onSubmit= async () => {
+  const handleImageUpload = async () => {
     if (!inputRef.current?.files?.length) {
      toast.warning(<span className="text-lg">No File Selected!</span>);
      return;
     }
 
-    const selectedImage = Array.from(inputRef.current.files);
-    await startUpload(selectedImage);
-    setSelectedImageName(null);
-    setSelectedImageUrl(null);
+   const selectedImage = Array.from(inputRef.current.files);
+      await startUpload(selectedImage, {
+        imageName: form.getValues("imageName"),
+      });
+      setSelectedImageName(null);
+      setSelectedImageUrl(null);
+  };
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+     console.log(values)
+     setOpen(false);
+     await handleImageUpload();
   }
 
+ 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -118,12 +156,31 @@ export function UploadDialog() {
             )}
           </div>
         </div>
-      
-        <DialogFooter>
-          <Button type="submit" disabled={isUploading} onClick={onSubmit}>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="imageName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Image Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Image Name" {...field} />
+              </FormControl>
+              {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+       <DialogFooter>
+          <Button type="submit" disabled={isUploading}>
             Submit
           </Button>
         </DialogFooter>
+      </form>
+    </Form> 
       </DialogContent>
     </Dialog>
   );
