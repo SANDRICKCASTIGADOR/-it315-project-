@@ -1,6 +1,4 @@
-
 import "~/styles/globals.css";
-
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -38,7 +36,7 @@ export default function RootLayout({
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
         <body className="bg-blue-800">
-      <TopNav />
+       <TopNav />
         {children}
         <Toaster />
       </body>

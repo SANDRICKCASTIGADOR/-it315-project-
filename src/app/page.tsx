@@ -16,8 +16,8 @@ async function PropertyListings() {
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="relative flex justify-between items-center">
           <div>
-            <h2 className="text-3xl font-bold text-white mb-2">Your Property Listings</h2>
-            <p className="text-blue-100">Manage your homes for sale and connect with buyers</p>
+           <h2 className="text-3xl font-bold text-white mb-2">Explore Available Properties</h2>
+             <p className="text-blue-100">Browse listings and discover your future home</p>
           </div>
           <UploadDialog />
         </div>
@@ -33,8 +33,8 @@ async function PropertyListings() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">No properties listed yet</h3>
-              <p className="text-gray-500">Start selling by adding your first property listing</p>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">No properties found</h3>
+                <p className="text-gray-500">Check back soon or explore other listings available now</p>
             </div>
           </div>
         ) : (
@@ -55,9 +55,9 @@ async function PropertyListings() {
                       For Sale
                     </div>
                     
-                    {/* Price badge */}
+                   {/* Price badge */}
                     <div className="absolute top-4 right-4 px-3 py-1 bg-black/70 backdrop-blur-sm text-white text-sm font-bold rounded-lg">
-                      ${(Math.floor(Math.random() * 500) + 250)}K
+                     ₱{(Math.floor(Math.random() * 25000000) + 12500000).toLocaleString()}
                     </div>
                     
                     {/* Gradient overlay on hover */}
@@ -66,9 +66,6 @@ async function PropertyListings() {
                     {/* Property details overlay */}
                     <div className="absolute inset-0 flex flex-col justify-end p-6 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                        <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg">
-                          Beautiful Home #{image.id}
-                        </h3>
                         <p className="text-gray-200 text-sm leading-relaxed drop-shadow-md mb-3">
                           Stunning {Math.floor(Math.random() * 3) + 3} bedroom home in desirable neighborhood
                         </p>
@@ -154,11 +151,11 @@ async function PropertyListings() {
                 {/* Property name would go here */}
                 <div className="grid grid-cols-3 gap-4 mt-8 text-center">
                   <div className="text-white/80">
-                    <div className="text-2xl font-bold">1,200+</div>
+                    <div className="text-2xl font-bold">100+</div>
                     <div className="text-xs">Homes Sold</div>
                   </div>
                   <div className="text-white/80">
-                    <div className="text-2xl font-bold">$485K</div>
+                    <div className="text-2xl font-bold">₱1.5M</div>
                     <div className="text-xs">Avg Price</div>
                   </div>
                   <div className="text-white/80">
@@ -208,29 +205,31 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
               </svg>
             </div>
-            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Welcome to HomeHub</h1>
-            <p className="text-blue-100 mb-8 leading-relaxed text-lg drop-shadow-md">
-              Sign in to list your properties, connect with buyers, and manage your real estate portfolio
-            </p>
+           <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Welcome to HomeHub</h1>
+             <p className="text-blue-100 mb-8 leading-relaxed text-lg drop-shadow-md">
+                Sign in to browse beautiful properties, save your favorites, and find the perfect place to call home
+             </p>
             <div className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-xl font-semibold text-lg shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
-              Sign In to Start Selling
+                Sign In to Start Exploring
             </div>
+
             
-            {/* Feature highlights - Your snippet integrated here! */}
-            <div className="grid grid-cols-3 gap-4 mt-8 text-center">
-              <div className="text-white/80">
-                <div className="text-2xl font-bold">1,200+</div>
-                <div className="text-xs">Homes Sold</div>
-              </div>
-              <div className="text-white/80">
-                <div className="text-2xl font-bold">$485K</div>
-                <div className="text-xs">Avg Price</div>
-              </div>
-              <div className="text-white/80">
-                <div className="text-2xl font-bold">4.8★</div>
-                <div className="text-xs">Agent Rating</div>
-              </div>
+           {/* Feature highlights - User view */}
+          <div className="grid grid-cols-3 gap-4 mt-8 text-center">
+            <div className="text-white/80">
+              <div className="text-2xl font-bold">500+</div>
+              <div className="text-xs">Listings Available</div>
             </div>
+          <div className="text-white/80">
+              <div className="text-2xl font-bold">₱500K</div>
+              <div className="text-xs">Starting Price</div>
+          </div>
+          <div className="text-white/80">
+             <div className="text-2xl font-bold">4.9★</div>
+             <div className="text-xs">User Satisfaction</div>
+          </div>
+          </div>
+
             
             {/* Decorative elements */}
             <div className="flex justify-center mt-6 space-x-2">
@@ -257,34 +256,13 @@ export default function HomePage() {
             
             <div className="relative text-center text-white max-w-4xl mx-auto px-6">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                Welcome Back, Agent!
+                Welcome Back!
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 font-light leading-relaxed mb-6">
-                Your real estate empire awaits – manage listings, close deals, and help families find their dream homes
+                Explore your dream home with ease – browse listings, discover properties, and take the next step toward your future.
               </p>
-              
-              {/* Dashboard stats */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8 max-w-3xl mx-auto">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="text-2xl font-bold">$2.4M</div>
-                  <div className="text-sm text-blue-100">Total Sales</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="text-2xl font-bold">24</div>
-                  <div className="text-sm text-blue-100">Active Listings</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="text-2xl font-bold">18</div>
-                  <div className="text-sm text-blue-100">Pending Sales</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="text-2xl font-bold">4.9★</div>
-                  <div className="text-sm text-blue-100">Client Rating</div>
-                </div>
-              </div>
             </div>
           </div>
-          
           <PropertyListings />
         </div>
       </SignedIn>

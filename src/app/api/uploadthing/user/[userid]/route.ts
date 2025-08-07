@@ -3,10 +3,13 @@ import { NextResponse } from "next/server";
 
 export async function GET(
     request: Request,
-    { params }: { params: { userId: string} },
+    context: { params: { userId: string } | Promise<{ userId: string }> }
 ) {
     try {
+        // Handle both sync and async params
+        const params = await Promise.resolve(context.params);
         const userId = params.userId;
+        
         if (!userId) {
             return NextResponse.json(
                 { error: "User ID is required" },
@@ -19,7 +22,7 @@ export async function GET(
 
         return NextResponse.json({
             fullName: uploaderInfo.fullName,
-            userName: uploaderInfo.username,
+            username: uploaderInfo.username,
             emailAddress: uploaderInfo.emailAddresses[0]?.emailAddress || "",
         });
     } catch (error) {
@@ -28,7 +31,7 @@ export async function GET(
             {
                 error: "Failed to fetch user information",
             },
-            { status: 500}
-        )
+            { status: 500},
+        );
     }
 }
